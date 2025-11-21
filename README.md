@@ -1,85 +1,108 @@
 # FidxDFT-Toolkit v1 (Digital ForensicsTool)
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Portfolio_Ready-d32f2f?style=for-the-badge)
-![GUI](https://img.shields.io/badge/GUI-Tkinter-blue?style=for-the-badge)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Platform](https://img.shields.io/badge/platform-windows-lightgrey)
 
-**FidxDFT-Toolkit** is a professional-grade, modular Digital Forensics application built with Python. Designed with a "Cyber Red" aesthetic, it provides a comprehensive suite of tools for forensic analysis, including file integrity checking, metadata extraction, network packet analysis, and data recovery.
-
-> **⚠️ EDUCATIONAL USE ONLY**: This tool is developed for educational purposes and portfolio demonstration. Do not use on unauthorized systems.
+**FidxDFT-Toolkit** is a professional-grade, modular Digital Forensics Toolkit designed for efficient evidence analysis and artifact extraction. Built with Python, it offers both a robust Command Line Interface (CLI) and a modern, user-friendly GUI for forensic investigators.
 
 ## 🚀 Features
 
-*   **🔒 File Integrity**: Calculate MD5, SHA1, and SHA256 hashes to verify evidence integrity.
-*   **📸 EXIF Extraction**: Reveal hidden metadata (GPS, timestamps, device info) from image files.
-*   **🌐 Network Forensics**: Analyze `.pcap` files to identify top talkers, suspicious ports, and protocol distribution using `Scapy`.
-*   **🕵️ Browser Forensics**: Parse and analyze Chrome/Edge history databases (SQLite) to reconstruct user activity.
-*   **💾 File Carving**: Recover deleted images (JPG/PNG) from raw binary dumps using header/footer signature analysis.
-*   **timeline Timeline Generation**: Correlate events into a chronological timeline and export professional PDF reports.
-*   **💻 Modern GUI**: A dark-themed, responsive interface built with `Tkinter` and `ttk` styling.
+The toolkit is composed of six core modules, each designed to handle specific forensic tasks:
 
-## 🛠️ Skills Demonstrated
+- **🔐 Hash Calculator**: 
+  - verify file integrity using industry-standard algorithms: **MD5**, **SHA1**, and **SHA256**.
+  - Batch processing capabilities for multiple files.
 
-This project demonstrates proficiency in:
-*   **Python Development**: Modular architecture, OOP, and type hinting.
-*   **GUI Programming**: Building responsive desktop apps with `Tkinter`.
-*   **Network Analysis**: Packet level analysis using `Scapy`.
-*   **Database Management**: Interacting with SQLite databases for forensic data.
-*   **File Systems**: Binary file handling and signature-based data recovery.
-*   **Data Visualization**: Generating PDF reports with `ReportLab`.
-*   **Software Engineering**: Unit testing (`pytest`), CI/CD (GitHub Actions), and documentation.
+- **📸 EXIF Metadata Extractor**:
+  - Extract hidden metadata from images (JPG, TIFF, WAV).
+  - Retrieves GPS coordinates, camera models, timestamps, and software information.
 
-## 📦 Installation
+- **🌐 Browser History Parser**:
+  - Analyze web browsing history from SQLite databases (Chrome/Firefox).
+  - Extracts visited URLs, timestamps, and visit counts.
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/yourusername/FidxDFT-Toolkit.git
-    cd FidxDFT-Toolkit
-    ```
+- **📡 PCAP Analyzer (Mini)**:
+  - Parse packet capture files (.pcap) to analyze network traffic.
+  - Extracts source/destination IPs, protocols, and payload data.
 
-2.  **Run the Setup Script (Windows):**
-    Double-click `setup_and_run.bat` to automatically create a virtual environment, install dependencies, and launch the tool.
+- **⛏️ File Carver**:
+  - Recover deleted or fragmented files from raw disk images or binary files.
+  - Supports signature-based recovery for **JPG** and **PNG** formats.
 
-    *Alternatively, manual setup:*
-    ```bash
-    python -m venv venv
-    venv\Scripts\activate
-    pip install -r requirements.txt
-    python gui.py
-    ```
+- **📅 Timeline Generator**:
+  - Create comprehensive timelines of forensic events.
+  - Exports data to **JSON** for programmatic use and **PDF** for professional reporting.
 
-## 🖥️ Usage
+## 🛠️ Installation
 
-1.  **Launch the Tool**: Run `gui.py`.
-2.  **Select a Module**: Click on the tabs (HASH, EXIF, PCAP, etc.) to switch tools.
-3.  **Load Evidence**: Use the "SELECT FILE" or "LOAD" buttons to import data.
-4.  **Analyze & Export**: View results in the console panel and export findings to CSV or PDF.
+### Prerequisites
+- Python 3.10 or higher
+- pip (Python Package Manager)
+
+### Setup
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/synexistech/fidxDFT-DigitalForensicsTool-.git
+   cd fidxDFT-DigitalForensicsTool-
+   ```
+
+2. **Create and activate a virtual environment (Recommended):**
+   ```bash
+   # Windows
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## 💻 Usage
+
+### Graphical User Interface (GUI)
+The GUI provides an intuitive dashboard for accessing all modules.
+```bash
+python gui.py
+```
+
+### Command Line Interface (CLI)
+(Coming soon in v1.1 - currently integrated via module scripts)
 
 ## 📂 Project Structure
 
 ```
-FidxDFT-Toolkit/
-├── dft/
-│   ├── modules/        # Core forensic modules (hash, exif, pcap, etc.)
-│   └── utils/          # Helper functions and logging
-├── assets/             # Sample evidence files for testing
-├── docs/               # Documentation and user guides
-├── tests/              # Unit tests (Pytest)
-├── gui.py              # Main GUI Application
-├── setup_and_run.bat   # Automated setup script
-└── requirements.txt    # Project dependencies
+fidxDFT-Toolkit/
+├── assets/              # Static assets (icons, images)
+├── dft/                 # Core package
+│   ├── modules/         # Forensic modules (hash, exif, pcap, etc.)
+│   └── __init__.py
+├── docs/                # Documentation
+├── tests/               # Unit tests (pytest)
+├── gui.py               # Main GUI application entry point
+├── requirements.txt     # Python dependencies
+├── LICENSE              # MIT License
+└── README.md            # Project documentation
 ```
 
-## 🔮 Roadmap
+## 🧪 Testing
 
-- [ ] **Registry Analysis**: Module to parse Windows Registry hives.
-- [ ] **Keyword Search**: Global search across loaded evidence.
-- [ ] **Cloud Forensics**: API integration for cloud log analysis.
-- [ ] **Dark/Light Toggle**: User-selectable themes.
+Run the comprehensive test suite to ensure all modules are functioning correctly:
+```bash
+pytest
+```
 
-## 📄 License
-Distributed under the MIT License. See `LICENSE` for more information.
+## 🤝 Contributing
 
----
-*Built by [Your Name] for Cybersecurity Portfolio.*
+Contributions are welcome! Please fork the repository and submit a Pull Request. Ensure all new features are covered by unit tests.
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**SynExisTech**
+*Advancing Digital Forensics*

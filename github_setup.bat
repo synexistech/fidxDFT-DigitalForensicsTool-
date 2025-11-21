@@ -8,13 +8,8 @@ echo.
 echo IMPORTANT: You must create a NEW repository on GitHub first!
 echo Go to https://github.com/new and create a repo named 'FidxDFT-Toolkit'.
 echo.
-set /p repo_url="Enter your GitHub Repository URL (e.g., https://github.com/username/FidxDFT-Toolkit.git): "
-
-if "%repo_url%"=="" (
-    echo Error: Repository URL cannot be empty.
-    pause
-    exit /b
-)
+set repo_url=https://github.com/synexistech/fidxDFT-DigitalForensicsTool-.git
+echo Repository URL set to: %repo_url%
 
 echo.
 echo [1/5] Initializing Git...
